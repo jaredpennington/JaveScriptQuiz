@@ -1,0 +1,37 @@
+* {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.answers-for-questions {
+    margin: 10px;
+    padding: 5px;
+    list-style: none;
+    border-style:ridge;
+    border-color: rgb(148 187 233);
+    border-width: 15px;
+    font-size: 25px;
+    text-align: center;
+    background: rgb(216 195 227);
+}
+
+.answers-for-questions:hover {
+    cursor:pointer;
+    background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+body {
+    background-color: rgb(216 195 227);
+}
+
+#all {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+
+}
+
+ul {
+    margin-left: 20%;
+    margin-right: 20%;
+}
