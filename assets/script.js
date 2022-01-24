@@ -104,10 +104,6 @@ function nextQuestion(event) {
     } else {
       timer -= 10;
     }
-    buttonEl.classList.remove("next-question");
-    buttonEl.setAttribute("class", "start");
-    questionIndex = 0;
-    timer = 100;
     return quizBye();
   } else {
     if (
@@ -122,8 +118,29 @@ function nextQuestion(event) {
   console.log(questionIndex);
 }
 
+function quizScores() {
+  var localArray = Object.entries(localStorage);
+  console.log(localArray[0]);
+  localArray.forEach((element) => {
+    var td1 = document.createElement("td");
+    var td2 = document.createElement("td");
+    var tr = document.createElement("tr");
+    td1.textContent = element[0];
+    td2.textContent = element[1];
+    document.getElementById("listed").appendChild(tr);
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    console.log(element[0], element[1]);
+  });
+}
+
 function submitScore() {
-    
+  //document.getElementById("initials")
+  console.log(document.getElementById("initials").value, score);
+  var initials = document.getElementById("initials").value;
+  var points = score;
+  localStorage.setItem(initials, points);
+  quizScores();
 }
 
 function quizBye() {
@@ -134,7 +151,6 @@ function quizBye() {
   document.getElementById("all").setAttribute("hidden", "");
   document.getElementById("questions-title").setAttribute("hidden", "");
   document.getElementById("divBox").setAttribute("hidden", "");
-
 }
 
 console.log(questionAnswers[questionIndex].correctAnswer);
