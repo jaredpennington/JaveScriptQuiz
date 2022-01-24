@@ -12,20 +12,31 @@
     />
 
     <link rel="stylesheet" href="./assets/style.css" />
-    <title>Home page</title>
+    <title>Code Quiz</title>
   </head>
   <body>
-      <div id="gameStart">
+
+      <section id="gameStart">
           <h1>Code Quiz
         </h1>
         <button class="start">Start Quiz.</button>
-      </div>
-      <div>
-    <div id="all">
+      </section>
+
+    <section id="all">
       <div id="displayTimer"></div>
       <h1 id="questions-title"></h1>
       <div id="divBox"></div>
-    </div>
+    </section>
+
+    <section id="highContainer">
+        <h1>Highscores!</h1>
+        <p id="score"></p>
+        <label for="initials">Initials:</label>
+        <input type="text" id="initials" name="initials">
+        <button onclick="submitScore()">Submit Score</button>
+    </section>
+
     <script src="./assets/script.js"></script>
+
   </body>
 </html>

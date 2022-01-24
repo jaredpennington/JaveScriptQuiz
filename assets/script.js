@@ -4,18 +4,21 @@ var buttonEl = document.querySelector(".start");
 var score = 0;
 
 function timerFunction() {
-  document.getElementById("displayTimer").textContent = `time remaining ${timer}`;
+  document.getElementById(
+    "displayTimer"
+  ).textContent = `time remaining ${timer}`;
 
   var testTimer = setInterval(function () {
     if (timer == 0) {
-        document.getElementById("all").setAttribute("hidden", "")
-        return clearInterval(testTimer)
+      document.getElementById("all").setAttribute("hidden", "");
+      return clearInterval(testTimer);
     }
     timer--;
-    document.getElementById("displayTimer").textContent = `time remaining ${timer}`;
+    document.getElementById(
+      "displayTimer"
+    ).textContent = `time remaining ${timer}`;
     console.log(timer);
   }, 1000);
-  
 }
 
 // Questions (object array)
@@ -94,7 +97,7 @@ function nextQuestion(event) {
   liEl.remove();
   //getAnswers;
   console.log("test");
-  if (questionIndex >= questionAnswers.length -1) {
+  if (questionIndex >= questionAnswers.length - 1) {
     if (
       event.target.textContent == questionAnswers[questionIndex].correctAnswer
     ) {
@@ -104,8 +107,8 @@ function nextQuestion(event) {
     buttonEl.classList.remove("next-question");
     buttonEl.setAttribute("class", "start");
     questionIndex = 0;
-    timer === 100;
-    startQuiz();
+    timer = 100;
+    return quizBye();
   } else {
     if (
       event.target.textContent == questionAnswers[questionIndex].correctAnswer
@@ -119,6 +122,21 @@ function nextQuestion(event) {
   console.log(questionIndex);
 }
 
+function submitScore() {
+    
+}
+
+function quizBye() {
+  var highContainer = document.getElementById("score");
+  score = timer;
+  highContainer.textContent = score;
+  document.getElementById("displayTimer").setAttribute("hidden", "");
+  document.getElementById("all").setAttribute("hidden", "");
+  document.getElementById("questions-title").setAttribute("hidden", "");
+  document.getElementById("divBox").setAttribute("hidden", "");
+
+}
+
 console.log(questionAnswers[questionIndex].correctAnswer);
 // high scores when the quiz ends. create high score button. gather and store info in a var and put onto html.
 var highScores = 0;
@@ -129,6 +147,8 @@ function startQuiz() {
   buttonEl.classList.remove("start");
   buttonEl.setAttribute("class", "next-question");
   buttonEl.setAttribute("onclick", "nextQuestion(event)");
+  var startingGame = document.getElementById("gameStart");
+  startingGame.setAttribute("hidden", "");
   getAnswers();
 }
 

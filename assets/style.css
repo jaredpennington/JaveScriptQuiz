@@ -14,15 +14,22 @@
     background: rgb(216 195 227);
 }
 
+#questions-title h1 {
+    justify-content: center;
+    
+}
+
 .answers-for-questions:hover {
     cursor:pointer;
     background: rgb(238,174,202);
-background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 body {
     background-color: rgb(216 195 227);
 }
+
+
 
 #all {
     display: flex;
